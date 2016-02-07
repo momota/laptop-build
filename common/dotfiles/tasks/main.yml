@@ -1,0 +1,9 @@
+---
+- name: set up my dotfiles
+  git: repo=https://github.com/momota/dotfiles.git dest={{ home_dir }}/dotfiles
+
+- name: change .sh file mode
+  file: path="{{ home_dir }}/dotfiles/link_dotfiles.sh" mode=0755
+
+- name: make symbolic link for dotfiles
+  shell: "sh {{ home_dir }}/dotfiles/link_dotfiles.sh"

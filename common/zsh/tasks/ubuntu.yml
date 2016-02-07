@@ -1,0 +1,12 @@
+---
+- name: be sure zsh is installed
+  apt: name=zsh state=present
+  become: yes
+  become_method: sudo
+  environment: proxy_env
+
+- name: set up zsh as default shell
+  command: chsh -s '/bin/zsh' {{ ansible_env.USER }}
+
+- name: cloning oh-my-zsh repository
+  git: repo=git://github.com/robbyrussell/oh-my-zsh.git dest={{ home_dir }}/.oh-my-zsh

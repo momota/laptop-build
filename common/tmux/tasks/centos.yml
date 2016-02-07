@@ -1,0 +1,5 @@
+---
+- name: be sure tmux is installed (centos)
+  yum: name=tmux state=installed
+  become: yes
+  become_method: sudo

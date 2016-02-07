@@ -1,0 +1,12 @@
+- hosts: all
+  vars_files:
+    - ../vars/common.yml
+    - ../private_vars/common.yml
+  roles:
+    - yum
+    - ../common/guest_account
+    - ../common/ruby
+    - ../common/tmux
+    - ../common/zsh
+    - ../common/vim
+    - ../common/dotfiles

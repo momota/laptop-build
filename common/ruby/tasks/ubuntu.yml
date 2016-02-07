@@ -1,0 +1,16 @@
+---
+- name: install the latest version of ruby
+  apt: name=ruby state=present
+  become_method: sudo
+
+- name: check out rbenv int "~/.rbenv"
+  git: repo=https://github.com/sstephenson/rbenv.git dest=~/.rbenv
+
+- name: add "~/.rbenv/bin" to my $PATH
+  shell: echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+
+- name: add "rbenv init" to my shell to enable shims and autocompletion
+  shell: echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+
+- name: install as an rbenv plugin
+  git: repo=https://github.com/stephenson/ruby-build.git dest=~/.rbenv/plugins/ruby-build

@@ -1,0 +1,3 @@
+--- 
+user: momota
+home_dir: /home/{{ user }}

@@ -1,0 +1,10 @@
+---
+- name: download NeoBundle setup script
+  get_url: url=https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh dest=~/install.sh mode=0755
+
+- name: install NeoBundle
+  shell: sh ~/install.sh
+
+- name: remove NeoBundle setup script
+  file: path=~/install.sh state=absent
+

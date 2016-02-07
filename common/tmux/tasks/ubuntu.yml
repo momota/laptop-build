@@ -1,0 +1,5 @@
+---
+- name: be sure tmux is installed
+  apt: name=tmux state=present
+  become: yes
+  become_method: sudo
