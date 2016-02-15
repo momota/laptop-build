@@ -1,0 +1,5 @@
+---
+- name: be sure dstat is installed
+  apt: name=dstat state=present
+  become: yes
+  become_method: sudo
