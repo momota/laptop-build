@@ -1,9 +1,12 @@
 - hosts: all
+  become: yes
+  become_method: sudo
   vars_files:
     - ../vars/common.yml
     - ../private_vars/common.yml
   roles:
     - yum
+    - docker
     - ../common/guest_account
     - ../common/ruby
     - ../common/tmux

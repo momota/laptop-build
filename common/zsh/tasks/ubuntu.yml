@@ -1,8 +1,6 @@
 ---
 - name: be sure zsh is installed
   apt: name=zsh state=present
-  become: yes
-  become_method: sudo
   environment: proxy_env
 
 - name: set up zsh as default shell

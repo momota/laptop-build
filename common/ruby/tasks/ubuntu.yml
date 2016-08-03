@@ -1,7 +1,6 @@
 ---
 - name: install the latest version of ruby
   apt: name=ruby state=present
-  become_method: sudo
 
 - name: check out rbenv int "~/.rbenv"
   git: repo=https://github.com/sstephenson/rbenv.git dest=~/.rbenv

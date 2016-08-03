@@ -1,5 +1,3 @@
 ---
 - name: add the user "guest"
   user: name=guest shell=/bin/bash password={{ guest_password }}
-  become: yes
-  become_method: sudo
