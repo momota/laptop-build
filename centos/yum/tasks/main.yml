@@ -5,10 +5,9 @@
   become_method: sudo
 
 - name: install packages
-  yum: name=$item state=present
+  yum: name={{ item.package }} state=present
   become: yes
   become_method: sudo
-  with_items:
-    - gvim
-    - terminator
+  with_items: 
+    - "{{ yum_packages }}"
 

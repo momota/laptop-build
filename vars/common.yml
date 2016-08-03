@@ -1,3 +1,6 @@
 --- 
 user: momota
 home_dir: /home/{{ user }}
+yum_packages:
+  - package: gvim
+  - package: terminator
