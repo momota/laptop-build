@@ -3,3 +3,12 @@
   yum: name=* state=latest
   become: yes
   become_method: sudo
+
+- name: install packages
+  yum: name=$item state=present
+  become: yes
+  become_method: sudo
+  with_items:
+    - gvim
+    - terminator
+
