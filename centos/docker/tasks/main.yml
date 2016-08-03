@@ -1,0 +1,38 @@
+---
+- name: set docker repository
+  copy:
+    src:   docker.repo
+    dest:  /etc/yum.repos.d/docker.repo
+    owner: root
+    group: root
+    mode:  0755
+
+- name: install docker
+  yum:
+    name:  docker-engine
+    state: present
+
+# docker compose
+- name: get docker-compose
+  get_url:
+    url:  "https://github.com/docker/compose/releases/download/1.8.0/docker-compose-{{ansible_system}}-{{ansible_machine}}"
+    dest: /usr/local/bin/docker-compose
+  register: get_compose
+
+- name: chmod docker-compose
+  file:
+    path: /usr/local/bin/docker-compose
+    mode: "a+x"
+  when: get_compose.changed
+
+- name: confirm docker-compose installation
+  shell: docker-compose --version | awk 'NR==1 { print $NF }'
+  changed_when: false
+
+# service start
+- name: start docker daemon
+  service:
+    name: docker
+    state: started
+    enabled: yes
+

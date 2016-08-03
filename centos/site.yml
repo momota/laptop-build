@@ -12,4 +12,4 @@
     - ../common/tmux
     - ../common/zsh
     - ../common/vim
-    - ../common/dotfiles
+   #- ../common/dotfiles
