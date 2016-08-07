@@ -4,4 +4,4 @@
   vars_files:
     - ../vars/common.yml
   roles:
-    - yum
+    - brew
