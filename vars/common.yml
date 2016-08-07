@@ -4,3 +4,69 @@ home_dir: /home/{{ user }}
 yum_packages:
   - package: gvim
   - package: terminator
+homebrew_taps:
+  - homebrew/versions
+  - homebrew/binary
+  - homebrew/dupes
+  - caskroom/cask
+  - sanemat/font
+homebrew_packages:
+  - { name: readline }
+  - { name: openssl }
+  - { name: openssl, state: linked, install_options: force }
+  - { name: python }
+  - { name: ansible }
+  - { name: coreutils }
+  - { name: git }
+  - { name: zsh, install_options: disable-etcdir }
+  - { name: wget }
+  - { name: curl }
+  - { name: cmake }
+  - { name: autoconf }
+  - { name: automake }
+  - { name: pkg-config }
+  - { name: ctags }
+  - { name: tree }
+  - { name: lv }
+  - { name: nkf }
+  - { name: jq }
+  - { name: go }
+  - { name: direnv }
+  - { name: peco }
+  - { name: hub }
+  - { name: tig }
+  - { name: rbenv }
+  - { name: ruby-build }
+  - { name: lha }
+  - { name: imagemagick }
+  - { name: mercurial }
+  - { name: w3m }
+  - { name: tmux }
+  - { name: reattach-to-user-namespace }
+  - { name: graphviz }
+  - { name: autojump }
+  - { name: gibo }
+  - { name: source-highlight }
+homebrew_cask_packages:
+  - { name: iterm2 }
+  - { name: firefox }
+  - { name: google-chrome }
+  - { name: adobe-reader }
+  - { name: skype }
+  - { name: slack }
+  - { name: sourcetree }
+  - { name: gitx }
+  - { name: flux }
+  - { name: skitch }
+  - { name: seashore }
+  - { name: vagrant }
+  - { name: macvim-kaoriya }
+  - { name: virtualbox }
+  - { name: alfred }
+  - { name: yorufukurou }
+  - { name: vlc }
+  - { name: dropbox }
+  - { name: totalspaces }
+  - { name: totalfinder }
+  - { name: appcleaner }
+  - { name: clipmenu }
