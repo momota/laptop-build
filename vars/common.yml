@@ -41,7 +41,7 @@ homebrew_packages:
   - { name: imagemagick }
   - { name: mercurial }
   - { name: w3m }
-  - { name: tmux }
+# - { name: tmux }
   - { name: reattach-to-user-namespace }
   - { name: graphviz }
   - { name: autojump }

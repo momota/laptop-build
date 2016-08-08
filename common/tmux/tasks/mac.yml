@@ -1,0 +1,14 @@
+---
+- name: brew パッケージをインストール
+  homebrew: >
+    name=tmux
+    state=latest
+  register: brew_result
+
+- name: brew パッケージの情報保存先ディレクトリを作成
+  file: path=brew_info state=directory
+
+- name: brew パッケージの情報を保存
+  shell: brew info {{ item }} > brew_info/{{ item }}
+  with_items: brew_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
+
