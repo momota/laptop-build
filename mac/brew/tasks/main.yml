@@ -1,13 +1,13 @@
 ---
-- name: homebrew ‚Ì tap ƒŠƒ|ƒWƒgƒŠ‚ð’Ç‰Á
+- name: homebrew ã® tap ãƒªãƒã‚¸ãƒˆãƒªã‚’è¿½åŠ 
   homebrew_tap: tap={{ item }} state=present
   with_items: homebrew_taps
 
-- name: homebrew ‚ðƒAƒbƒvƒf[ƒg
+- name: homebrew ã‚’ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
   homebrew: update_homebrew=yes
 
 # brew
-- name: brew ƒpƒbƒP[ƒW‚ðƒCƒ“ƒXƒg[ƒ‹
+- name: brew ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
   homebrew: >
     name={{ item.name }}
     state={{ item.state | default('latest') }}
@@ -19,26 +19,26 @@
   with_items: homebrew_packages
   register: brew_result
 
-- name: brew ƒpƒbƒP[ƒW‚Ìî•ñ•Û‘¶æƒfƒBƒŒƒNƒgƒŠ‚ðì¬
+- name: brew ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®æƒ…å ±ä¿å­˜å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆ
   file: path=brew_info state=directory
 
-- name: brew ƒpƒbƒP[ƒW‚Ìî•ñ‚ð•Û‘¶
+- name: brew ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®æƒ…å ±ã‚’ä¿å­˜
   shell: brew info {{ item }} > brew_info/{{ item }}
   with_items: brew_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
 
 # cask
-- name: homebrew-cask ‚ÌƒCƒ“ƒXƒg[ƒ‹
+- name: homebrew-cask ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
   homebrew: name=brew-cask state=latest
 
-- name: cask ƒpƒbƒP[ƒW‚ðƒCƒ“ƒXƒg[ƒ‹
+- name: cask ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
   homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
   with_items: homebrew_cask_packages
   register: cask_result
 
-- name: cask ƒpƒbƒP[ƒW‚Ìî•ñ•Û‘¶æƒfƒBƒŒƒNƒgƒŠ‚ðì¬
+- name: cask ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®æƒ…å ±ä¿å­˜å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œæˆ
   file: path=cask_info state=directory
 
-- name: cask ƒpƒbƒP[ƒW‚Ìî•ñ‚ð•Û‘¶
+- name: cask ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®æƒ…å ±ã‚’ä¿å­˜
   shell: brew cask info {{ item }} > cask_info/{{ item }}
   with_items: cask_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
   notify:
