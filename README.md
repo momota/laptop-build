@@ -13,9 +13,8 @@ $ git clone https://github.com/momota/laptop-build
 $ cd laptop-build
 
 # dry run
-$ ansible-playbook -i centos/hosts centos/site.yml -K --check
+$ ansible-playbook -i hosts centos/site.yml -K --check
 
 # execute
-$ ansible-playbook -i centos/hosts centos/site.yml -K
+$ ansible-playbook -i hosts centos/site.yml -K
 ```
-
