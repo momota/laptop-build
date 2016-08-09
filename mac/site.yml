@@ -3,5 +3,6 @@
     - ../vars/common.yml
   roles:
     - brew
+    - ricty
     - ../common/tmux
     - ../common/zsh

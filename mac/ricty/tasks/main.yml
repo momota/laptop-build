@@ -1,0 +1,15 @@
+---
+- name: install xquartz
+  homebrew_cask: name=xquartz
+
+- name: install fontforge
+  homebrew: name=fontforge
+
+- name: install ricty
+  homebrew: name=ricty
+
+- name: copy font file
+  shell: cp -f $(/usr/local/bin/brew --cellar ricty)/*/share/fonts/Ricty*.ttf ~/Library/Fonts/
+  args:
+    creates: ~/Library/Fonts/Ricty-Bold.ttf
+  notify: run fc-cache
