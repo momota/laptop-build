@@ -16,7 +16,7 @@ homebrew_packages:
   - { name: ansible }
   - { name: coreutils }
   - { name: git }
-  - { name: zsh, install_options: disable-etcdir }
+# - { name: zsh, install_options: disable-etcdir }
   - { name: wget }
   - { name: curl }
   - { name: cmake }

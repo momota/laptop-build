@@ -5,3 +5,5 @@
     - ../vars/common.yml
   roles:
     - brew
+    - ../common/tmux
+    - ../common/zsh
