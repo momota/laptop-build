@@ -23,7 +23,7 @@
   file: path=brew_info state=directory
 
 - name: brew パッケージの情報を保存
-  shell: brew info {{ item }} > brew_info/{{ item }}
+  shell: /usr/local/bin/brew info {{ item }} > brew_info/{{ item }}
   with_items: brew_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
 
 # cask
@@ -39,8 +39,7 @@
   file: path=cask_info state=directory
 
 - name: cask パッケージの情報を保存
-  shell: brew cask info {{ item }} > cask_info/{{ item }}
+  shell: /usr/local/bin/brew cask info {{ item }} > cask_info/{{ item }}
   with_items: cask_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
   notify:
     - run fc-cache
-

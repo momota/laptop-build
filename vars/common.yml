@@ -16,7 +16,7 @@ homebrew_packages:
   - { name: ansible }
   - { name: coreutils }
   - { name: git }
-# - { name: zsh, install_options: disable-etcdir }
+  - { name: vim, options: with-lua, override-system-vim }
   - { name: wget }
   - { name: curl }
   - { name: cmake }
@@ -39,7 +39,6 @@ homebrew_packages:
   - { name: imagemagick }
   - { name: mercurial }
   - { name: w3m }
-# - { name: tmux }
   - { name: reattach-to-user-namespace }
   - { name: graphviz }
   - { name: autojump }
@@ -49,6 +48,8 @@ homebrew_cask_packages:
   - { name: iterm2 }
   - { name: firefox }
   - { name: google-chrome }
+  - { name: google-japanese-ime }
+  - { name: google-photos-backup }
   - { name: adobe-reader }
   - { name: skype }
   - { name: slack }
@@ -58,13 +59,15 @@ homebrew_cask_packages:
   - { name: skitch }
   - { name: seashore }
   - { name: vagrant }
-  - { name: macvim-kaoriya }
+  - { name: macvim }
   - { name: virtualbox }
   - { name: alfred }
-  - { name: yorufukurou }
+  - { name: night-owl }
+  - { name: ripit }
+  - { name: handbrake }
   - { name: vlc }
   - { name: dropbox }
   - { name: totalspaces }
   - { name: totalfinder }
   - { name: appcleaner }
-  - { name: clipmenu }
+  - { name: clipy }   # instead of clipmenu

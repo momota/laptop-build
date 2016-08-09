@@ -1,19 +1,16 @@
 ---
-- name: brew パッケージをインストール
-  homebrew: >
-    name=zsh
-    state=latest
-  register: brew_result
+- name: zsh をインストール
+  homebrew: name=zsh state=latest
 
-- name: brew パッケージの情報保存先ディレクトリを作成
+- name: zsh のインストール情報保存先ディレクトリを作成
   file: path=brew_info state=directory
 
-- name: brew パッケージの情報を保存
-  shell: brew info {{ item }} > brew_info/{{ item }}
-  with_items: brew_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
+- name: zsh パッケージの情報を保存
+  shell: /usr/local/bin/brew info zsh > brew_info/zsh
 
 - name: set up zsh as default shell
-  command: chsh -s '/bin/zsh' {{ ansible_env.USER }}
+  shell: /usr/bin/chsh -s '/bin/zsh' {{ ansible_env.USER }}
+  become: yes
 
 - name: cloning oh-my-zsh repository
   git: repo=git://github.com/robbyrussell/oh-my-zsh.git dest={{ ansible_env.HOME }}/.oh-my-zsh
