@@ -1,9 +1,9 @@
 ---
 - name: set up my dotfiles
-  git: repo=https://github.com/momota/dotfiles.git dest={{ home_dir }}/dotfiles
+  git: repo=https://github.com/momota/dotfiles.git dest={{ ansible_env.HOME }}/dotfiles
 
 - name: change .sh file mode
-  file: path="{{ home_dir }}/dotfiles/link_dotfiles.sh" mode=0755
+  file: path="{{ ansible_env.HOME }}/dotfiles/link_dotfiles.sh" mode=0755
 
 - name: make symbolic link for dotfiles
-  shell: "sh {{ home_dir }}/dotfiles/link_dotfiles.sh"
+  shell: "sh {{ ansible_env.HOME }}/dotfiles/link_dotfiles.sh"
