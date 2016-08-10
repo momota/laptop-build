@@ -1,7 +1,9 @@
 --- 
+# for CentOS
 yum_packages:
   - package: gvim
   - package: terminator
+# for MacOSX
 homebrew_taps:
   - homebrew/versions
   - homebrew/binary
