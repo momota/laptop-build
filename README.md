@@ -7,14 +7,17 @@ This is an ansible playbook for setting up laptops or some development environme
 usage
 =====
 
+First, clone this repo.
+
+```sh
+$ git clone https://github.com/momota/laptop-build
+$ cd laptop-build
+```
+
 CentOS
 ------
 
 ```sh
-# git clone
-$ git clone https://github.com/momota/laptop-build
-$ cd laptop-build
-
 # dry run
 $ ansible-playbook -i hosts centos/site.yml -K --check
 
@@ -26,10 +29,6 @@ MacOSX
 ------
 
 ```sh
-# git clone
-$ git clone https://github.com/momota/laptop-build
-$ cd laptop-build
-
 # execute
 $ HOMEBREW_CASK_OPTS="--appdir=/Applications" ansible-playbook -i hosts mac/site.yml -vv -K
 ```
