@@ -73,3 +73,4 @@ homebrew_cask_packages:
   - { name: totalfinder }
   - { name: appcleaner }
   - { name: clipy }   # instead of clipmenu
+  - { name: android-file-transfer }
