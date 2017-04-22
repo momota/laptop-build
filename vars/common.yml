@@ -46,6 +46,7 @@ homebrew_packages:
   - { name: autojump }
   - { name: gibo }
   - { name: source-highlight }
+  - { name: libdvdcss }
 homebrew_cask_packages:
   - { name: iterm2 }
   - { name: firefox }
